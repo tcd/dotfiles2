@@ -107,20 +107,26 @@ bindkey -e
 # make <S-Tab> work *correctly*
 bindkey '^[[Z' reverse-menu-complete
 
-bindkey '[C' forward-word
-bindkey '[D' backward-word
-bindkey "^[[1;3C" forward-word   # Ubuntu
-bindkey "^[[1;3D" backward-word  # Ubuntu
-bindkey "^[[1;5C" forward-word   # CentOS 7
-bindkey "^[[1;5D" backward-word  # CentOS 7
+# Control + backspace
+bindkey '^H' backward-kill-word
 
-# History Searching
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
 
-bindkey '^[[A' history-beginning-search-backward-end
-bindkey '^[[B' history-beginning-search-forward-end
+# bindkey '[C' forward-word
+# bindkey '[D' backward-word
+# bindkey "^[[1;3C" forward-word   # Ubuntu
+# bindkey "^[[1;3D" backward-word  # Ubuntu
+# bindkey "^[[1;5C" forward-word   # CentOS 7
+# bindkey "^[[1;5D" backward-word  # CentOS 7
+
+# # History Searching
+# autoload history-search-end
+# zle -N history-beginning-search-backward-end history-search-end
+# zle -N history-beginning-search-forward-end history-search-end
+
+# bindkey '^[[A' history-beginning-search-backward-end
+# bindkey '^[[B' history-beginning-search-forward-end
 
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
@@ -137,4 +143,5 @@ source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # [ -f ~/dircolors.sh ] && eval $(dircolors ~/dircolors.sh)
 
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
