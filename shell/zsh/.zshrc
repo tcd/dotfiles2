@@ -17,8 +17,8 @@ done;
 unset file;
 
 [[ -f "$DOTFILES/ignore/.private" ]] && source "$DOTFILES/ignore/.private"
-# source "$DOTFILES/shell/zsh/prompt.zsh"
-# source "$DOTFILES/shell/functions/.fzf.functions.sh"
+source "$DOTFILES/shell/zsh/prompt.zsh"
+source "$DOTFILES/shell/functions/.fzf.functions.sh"
 
 # =============================================================================
 #  Syntax
@@ -129,10 +129,10 @@ WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
 # export FZF_COMPLETION_TRIGGER='**'
 
-# source ~/.zsh/plugins/fzf-marks/fzf-marks.plugin.zsh
-# source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-# source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/plugins/fzf-marks/fzf-marks.plugin.zsh
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # [ -f ~/dircolors.sh ] && eval $(dircolors ~/dircolors.sh)
 
