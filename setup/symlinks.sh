@@ -6,7 +6,7 @@ Are you sure you want to proceed? [y/n] ' -n 1 -r
 echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    filename="$HOME/.dotfiles/init/symlinks.txt"
+    filename="$HOME/.dotfiles/setup/symlinks.txt"
 
     while read line; do
       from=$(echo $line | awk '{print $1}')
