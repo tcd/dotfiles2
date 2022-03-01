@@ -27,7 +27,7 @@ indent_style = tab
 
 # [*.{bash,html,js,json,lua,md,rb,sh,vim}]
 # # indent_size = 2
-# 
+#
 # [*.{c,cs,jar,java,kt,php,pl,py,rs,swift,ts}]
 # # indent_size = 4
 
@@ -38,4 +38,3 @@ indent_size = 8
 indent_style = tab
 indent_size = 4
 trim_trailing_whitespace = false
-
