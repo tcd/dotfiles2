@@ -1,0 +1,6 @@
+cmatrix
+figlet
+silversearcher-ag
+fzf
+tmux
+zsh
