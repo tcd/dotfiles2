@@ -27,14 +27,14 @@ komet() {
 # @description Copy the contents of a file to your clipboard.
 # @param $1 string Name of the file to copy.
 yank() {
-  cat "$1" | pbcopy;
+  cat "$1" | clip.exe;
 }
 
-# @description Copy the contents of your clipboard to a file.
-# @param $1 string Name of the file paste to.
-put() {
-  pbpaste > "$1";
-}
+# # @description Copy the contents of your clipboard to a file.
+# # @param $1 string Name of the file paste to.
+# put() {
+#   clippaste > "$1";
+# }
 
 # @description Prints an array of colors to test for True Color support.
 #

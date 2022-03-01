@@ -18,6 +18,7 @@ unset file;
 
 [[ -f "$DOTFILES/ignore/.private" ]] && source "$DOTFILES/ignore/.private"
 source "$DOTFILES/shell/zsh/prompt.zsh"
+# source "$DOTFILES/shell/zsh/clipcopy.zsh"
 source "$DOTFILES/shell/functions/.fzf.functions.sh"
 
 # =============================================================================

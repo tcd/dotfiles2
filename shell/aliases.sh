@@ -51,16 +51,16 @@ alias dots='cd $DOTFILES'
 alias zr="source ~/.zshrc"
 alias ,z='$EDITOR ~/.zshrc'
 
-# Reload bash
-alias br="source ~/.bashrc"
-alias ,b='$EDITOR ~/.bashrc'
+# # Reload bash
+# alias br="source ~/.bashrc"
+# alias ,b='$EDITOR ~/.bashrc'
 
 # # Configure Neovim
 # alias ,v='$EDITOR ~/.vimrc'
 # alias ,n='$EDITOR ~/.config/nvim/init.vim'
 
 # # Configure tmux
-# alias remux='$EDITOR $DOTFILES/config/.tmux.conf'
+alias remux='$EDITOR $DOTFILES/config/.tmux.conf'
 
 # Edit a file in $DOTFILES
 dotfile() {
@@ -74,8 +74,8 @@ alias listpath='echo -e ${PATH//:/\\n}'
 alias listfpath='echo -e ${FPATH//:/\\n}'
 
 # # Copy cwd to the clipboard
-# alias hdp='echo -n $(pwd) | pbcopy'
-# alias prev="history -n | tail -n1 | pbcopy"
+alias hdp='echo -n $(pwd) | clip.exe'
+alias prev="history -n | tail -n1 | clip.exe"
 
 # # Get our IP
 # alias ipis="ifconfig -a | perl -nle\"/(\d+\.\d+\.\d+\.\d+)/ && print $1\""
