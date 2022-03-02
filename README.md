@@ -1,6 +1,6 @@
 # dotfiles2
 
-These are slimmed-down and made to work on Ubuntu 20.04 on WSL.
+These are slimmed-down and made to work on Ubuntu 20.04 on WSL through Windows Terminal.
 
 - [dunstontc/dotfiles (dotfiles1)](https://github.com/dunstontc/dotfiles)
 - [dunstontc/hoist](https://github.com/dunstontc/hoist/tree/master/src/scripps)
