@@ -16,3 +16,4 @@ $HOME/.dotfiles/shell/.profile                   $HOME/.profile
 $HOME/.dotfiles/shell/zsh/.zshrc                 $HOME/.zshrc
 # $HOME/.dotfiles/shell/bash/.bashrc               $HOME/.bashrc
 # $HOME/.dotfiles/shell/bash/.inputrc              $HOME/.inputrc
+# $HOME/.dotfiles/shell/dircolors.txt              $HOME/dircolors.sh

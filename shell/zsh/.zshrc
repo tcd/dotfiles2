@@ -110,13 +110,13 @@ bindkey '^[[Z' reverse-menu-complete
 # Control + backspace
 bindkey '^H' backward-kill-word
 
-bindkey ";5C" forward-word
-bindkey ";5D" backward-word
+# bindkey ";5C" forward-word
+# bindkey ";5D" backward-word
 
-# bindkey '[C' forward-word
-# bindkey '[D' backward-word
-# bindkey "^[[1;3C" forward-word   # Ubuntu
-# bindkey "^[[1;3D" backward-word  # Ubuntu
+bindkey '[C' forward-word
+bindkey '[D' backward-word
+bindkey "^[[1;5C" forward-word   # Ubuntu
+bindkey "^[[1;5D" backward-word  # Ubuntu
 # bindkey "^[[1;5C" forward-word   # CentOS 7
 # bindkey "^[[1;5D" backward-word  # CentOS 7
 
@@ -141,7 +141,9 @@ source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# [ -f ~/dircolors.sh ] && eval $(dircolors ~/dircolors.sh)
+[ -f ~/dircolors.sh ] && eval $(dircolors ~/dircolors.sh)
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
+
+stty erase "^?"
