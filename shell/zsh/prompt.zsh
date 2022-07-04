@@ -65,9 +65,9 @@ suffix() {
 if [[ $NERDFONT == "TRUE" ]]; then
   local docker_symbol=""
   local dotnet_symbol=""
-  local elixir_symbol=""
+  # local elixir_symbol=""
   local git_symbol=""
-  local golang_symbol=""
+  # local golang_symbol=""
   local jobs_symbol=""
   local node_symbol=""
   local npm_symbol="" #   ⬢  ﯶ 
@@ -76,9 +76,9 @@ if [[ $NERDFONT == "TRUE" ]]; then
 else
   local docker_symbol=""
   local dotnet_symbol="NET"
-  local elixir_symbol="EX"
+  # local elixir_symbol="EX"
   local git_symbol=""
-  local golang_symbol="GO"
+  # local golang_symbol="GO"
   local jobs_symbol="♩"
   local node_symbol="JS"
   local npm_symbol="⬢" #  ⬢
@@ -90,14 +90,14 @@ local ansible_symbol=""
 local swift_symbol=""
 # }}}
 
-# ==============================================================================
-# If there are Go-specific files in current directory, or current directory is under the GOPATH {{{
-prompt_golang() {
-  [[ -d Godeps || -f glide.yaml || -n *.go(#qN^/) || -f Gopkg.yml || -f Gopkg.lock || ( $GOPATH && $PWD =~ $GOPATH ) ]] || return
-
-  local go_version=$(go version | grep --colour=never -oE '[[:digit:]].([[:digit:]])+(.([[:digit:]])+)?')
-  echo -n "${light_blue}${golang_symbol} v${go_version} "
-}  # }}}
+# # ==============================================================================
+# # If there are Go-specific files in current directory, or current directory is under the GOPATH {{{
+# prompt_golang() {
+#   [[ -d Godeps || -f glide.yaml || -n *.go(#qN^/) || -f Gopkg.yml || -f Gopkg.lock || ( $GOPATH && $PWD =~ $GOPATH ) ]] || return
+#
+#   local go_version=$(go version | grep --colour=never -oE '[[:digit:]].([[:digit:]])+(.([[:digit:]])+)?')
+#   echo -n "${light_blue}${golang_symbol} v${go_version} "
+# }  # }}}
 
 # ==============================================================================
 # Show icon if there's a working jobs in the background {{{
@@ -162,7 +162,7 @@ prompt_ruby() {
   #   return
   # fi
 
-  [[ -z $ruby_version || "${ruby_version}" == "system" ]] && return
+  # [[ -z $ruby_version || "${ruby_version}" == "system" ]] && return
 
   # Add 'v' before ruby version that starts with a number
   [[ "${ruby_version}" =~ ^[0-9].+$ ]] && ruby_version="v${ruby_version}"
@@ -189,71 +189,71 @@ prompt_docker() {
 }
 # }}}
 
-# ==============================================================================
-# Show current virtual environment (Python) {{{
+# # ==============================================================================
+# # Show current virtual environment (Python) {{{
+#
+# # The (A) expansion flag creates an array, the '=' activates word splitting
+# spaceship_venv_generic_names="${(A)=spaceship_venv_generic_names=virtualenv venv .venv}"
+#
+# prompt_venv() {
+#   # Check if the current directory running via Virtualenv
+#   [ -n "$VIRTUAL_ENV" ] || return
+#
+#   local venv
+#
+#   if [[ "${spaceship_venv_generic_names[(i)$VIRTUAL_ENV:t]}" -le \
+#         "${#spaceship_venv_generic_names}" ]]
+#   then
+#     venv="$VIRTUAL_ENV:h:t"
+#   else
+#     venv="$VIRTUAL_ENV:t"
+#   fi
+#
+#   echo -n "${venv_yellow}${python_symbol} ${venv} %f"
+# }
+# # }}}
 
-# The (A) expansion flag creates an array, the '=' activates word splitting
-spaceship_venv_generic_names="${(A)=spaceship_venv_generic_names=virtualenv venv .venv}"
-
-prompt_venv() {
-  # Check if the current directory running via Virtualenv
-  [ -n "$VIRTUAL_ENV" ] || return
-
-  local venv
-
-  if [[ "${spaceship_venv_generic_names[(i)$VIRTUAL_ENV:t]}" -le \
-        "${#spaceship_venv_generic_names}" ]]
-  then
-    venv="$VIRTUAL_ENV:h:t"
-  else
-    venv="$VIRTUAL_ENV:t"
-  fi
-
-  echo -n "${venv_yellow}${python_symbol} ${venv} %f"
-}
-# }}}
-
-# ==============================================================================
-# Show current version of Elixir {{{
-prompt_elixir() {
-
-  # Show versions only for Elixir-specific folders
-  [[ -f mix.exs || -n *.ex(#qN^/) || -n *.exs(#qN^/) ]] || return
-
-  local elixir_version
-
-  # if spaceship::exists kiex; then
-  #   elixir_version="${ELIXIR_VERSION}"
-  # elif spaceship::exists exenv; then
-  #   elixir_version=$(exenv version-name)
-  # fi
-
-  if [[ $elixir_version == "" ]]; then
-    # spaceship::exists elixir || return
-    elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
-  fi
-
-  [[ $elixir_version == "system" ]] && return
-  [[ $elixir_version == $SPACESHIP_ELIXIR_DEFAULT_VERSION ]] && return
-
-  # Add 'v' before elixir version that starts with a number
-  [[ "${elixir_version}" =~ ^[0-9].+$ ]] && elixir_version="v${elixir_version}"
-
-    echo -n "${elixir_purp}${elixir_symbol} ${elixir_version} %f"
-}
-# }}}
+# # ==============================================================================
+# # Show current version of Elixir {{{
+# prompt_elixir() {
+#
+#   # Show versions only for Elixir-specific folders
+#   [[ -f mix.exs || -n *.ex(#qN^/) || -n *.exs(#qN^/) ]] || return
+#
+#   local elixir_version
+#
+#   # if spaceship::exists kiex; then
+#   #   elixir_version="${ELIXIR_VERSION}"
+#   # elif spaceship::exists exenv; then
+#   #   elixir_version=$(exenv version-name)
+#   # fi
+#
+#   if [[ $elixir_version == "" ]]; then
+#     # spaceship::exists elixir || return
+#     elixir_version=$(elixir -v 2>/dev/null | grep "Elixir" --color=never | cut -d ' ' -f 2)
+#   fi
+#
+#   [[ $elixir_version == "system" ]] && return
+#   [[ $elixir_version == $SPACESHIP_ELIXIR_DEFAULT_VERSION ]] && return
+#
+#   # Add 'v' before elixir version that starts with a number
+#   [[ "${elixir_version}" =~ ^[0-9].+$ ]] && elixir_version="v${elixir_version}"
+#
+#     echo -n "${elixir_purp}${elixir_symbol} ${elixir_version} %f"
+# }
+# # }}}
 
 # ==============================================================================
 prompt_parts=(
   git_status
-  docker
-  venv
-  dotnet
-  golang
+  # docker
+  # venv
+  # dotnet
+  # golang
   ruby
-  elixir
+  # elixir
   node
-  npm
+  # npm
   jobs
 )
 
@@ -284,17 +284,15 @@ PS1+="$grey]%f"
 
 PS1+="$green\$(suffix)%f "
 
-RPROMPT="%B$blue%~%f%b"
-if [[ $RP == "TRUE" ]]; then
+if [[ $SHOW_RIGHT_PROMPT == "TRUE" ]]; then
   RPROMPT="%B$blue%~%f%b"
 else
   RPROMPT=""
 fi
 
-alias rpr="export RP='nope' && source $DOTFILES/shell/zsh/prompt.zsh;";
-alias rp="export RP='TRUE' && source $DOTFILES/shell/zsh/prompt.zsh;";
+alias rpr="export SHOW_RIGHT_PROMPT='nope' && source $DOTFILES/shell/zsh/prompt.zsh;";
+alias rp="export SHOW_RIGHT_PROMPT='TRUE' && source $DOTFILES/shell/zsh/prompt.zsh;";
 
 # ==============================================================================
 # %D{╔═ %a %I:%M %p
 #    ╚═ ✨ "
-

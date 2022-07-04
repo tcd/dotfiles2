@@ -1,5 +1,8 @@
 # $DOTFILES/shell/exports.sh
 
+# ZSH right prompt toggle
+export SHOW_RIGHT_PROMPT="TRUE"
+
 export TERM="xterm-256color"
 
 export NERDFONT="FALSE"
@@ -84,3 +87,6 @@ export FZF_DEFAULT_OPTS='
 # export GPG_TTY=$(tty);
 
 # export PS1=$PS1'$( [ -n $TMUX ] && tmux setenv -g TMUX_PWD_$(tmux display -p "#D" | tr -d %) $PWD)'
+
+export DENO_INSTALL="/home/clay/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
